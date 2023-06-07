@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+<div class="header-bar">
+    <a href="{% url 'list-task' %}"><span style="font-size: 30px;">&#8678;</span></a>
+</div>
+
+    <div class="form">
+        <form action="" method="post">
+            {% csrf_token %}
+
+            {{form.as_p}}
+
+            <input class="button" type="submit" value="Update">
+        </form>
+    </div>
+{% endblock content %}

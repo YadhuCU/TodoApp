@@ -1,0 +1,22 @@
+<div class="navbar">
+    <div>
+        <h1>TodoApp</h1>
+        {% if request.user.is_authenticated %}
+        <h3>Hi {{request.user.username}}</h3>
+        <small><a href="{% url 'logout' %}">Logout</a></small>
+        {% else %}
+        <small><a href="{% url 'login' %}">Login</a></small>
+        {% endif %}
+    </div>
+
+    <div>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+                {% endfor %}
+        </ul>
+        {% endif %}
+    </div>
+</div>
